@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RADIONEST // Internet Radio Broadcast Studio & Console</title>
+  <meta name="description" content="Professional Internet Radio Station & Broadcast Console powered by Bun and Web Audio API with zero external dependencies.">
+  <!-- PWA Metadata -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#ff0055">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="RADIONEST">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Header -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="2"/>
+            <path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.83a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/>
+          </svg>
+        </div>
+        <div>
+          <h1>RADIONEST <span class="badge">STUDIO CONSOLE</span></h1>
+          <p class="subtitle">Internet Radio Broadcast Station • Dual Decks • DJ Mic • Soundboard Cart</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <button class="btn btn-secondary btn-sm hidden" id="pwaInstallBtn" title="Install RADIONEST as App">
+          <span>📲</span> Install App
+        </button>
+
+        <div class="on-air-badge off" id="onAirBadge">
+          <span class="air-dot"></span> ON AIR
+        </div>
+
+        <div class="ws-indicator" id="wsIndicator" title="Live Broadcast Stream Status">
+          <span class="ws-icon">📡</span> <span id="wsCount">Offline</span>
+        </div>
+
+        <button class="btn btn-secondary btn-sm" id="monitorToggleBtn">
+          <span>🎧</span> Headphone Monitor: <strong id="monitorLabel">ON</strong>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Dashboard Grid -->
+    <main class="dashboard">
+
+      <!-- Left Column: DJ Microphone & Station Format Presets -->
+      <section class="panel station-panel">
+        <div class="panel-header">
+          <h2>🎙️ DJ ANNOUNCER MIC & FORMATS</h2>
+          <div class="vad-pill" id="vadStatusPill">
+            <span class="status-dot active" id="vadDot"></span>
+            <span id="vadText">Mic Ready</span>
+          </div>
+        </div>
+
+        <!-- DJ Mic Control Card -->
+        <div class="source-card">
+          <div class="card-title">Microphone Channel</div>
+          <div class="input-select-group">
+            <label for="micSelect">Select DJ Microphone:</label>
+            <select id="micSelect" class="form-select">
+              <option value="default">Default Microphone</option>
+            </select>
+          </div>
+
+          <div class="transport-buttons">
+            <button class="btn btn-primary" id="startMicBtn">
+              <span>▶</span> Open DJ Mic
+            </button>
+            <button class="btn btn-danger hidden" id="stopMicBtn">
+              <span>⏹</span> Close Mic
+            </button>
+            <button class="btn btn-secondary" id="testVoiceBtn">
+              <span>🗣️</span> Station ID Test
+            </button>
+          </div>
+
+          <!-- Talkover Auto-Ducking Bar -->
+          <div class="ducking-bar">
+            <label class="toggle-switch">
+              <input type="checkbox" id="duckingToggle" checked>
+              <span class="slider round"></span>
+              <span class="toggle-text">Auto Talkover Ducking (Lowers Music when Speaking)</span>
+            </label>
+            <div class="control-group sm">
+              <label>Music Ducking Level: <span id="duckAmountVal">-14 dB</span></label>
+              <input type="range" id="duckAmount" min="6" max="24" step="1" value="14">
+            </div>
+          </div>
+        </div>
+
+        <!-- Background Sound Isolation Card -->
+        <div class="source-card isolation-card">
+          <div class="card-title">
+            <span>🛡️ Background Sound Isolation</span>
+          </div>
+          <div class="isolation-toggles">
+            <label class="toggle-switch">
+              <input type="checkbox" id="noiseSuppressionToggle" checked>
+              <span class="slider round"></span>
+              <span class="toggle-text">AI Hardware Noise Suppression</span>
+            </label>
+            <label class="toggle-switch">
+              <input type="checkbox" id="voiceIsolationToggle" checked>
+              <span class="slider round"></span>
+              <span class="toggle-text">Vocal Bandpass (85Hz - 7.5kHz)</span>
+            </label>
+          </div>
+          <div class="control-group">
+            <label>Noise Isolation Depth: <span id="isoDepthVal">80%</span></label>
+            <input type="range" id="isoDepth" min="0" max="100" step="5" value="80">
+          </div>
+          <div class="control-group">
+            <label>Voice Sensitivity: <span id="isoSensVal">-45 dB</span></label>
+            <input type="range" id="isoSens" min="-70" max="-20" step="1" value="-45">
+          </div>
+        </div>
+
+        <!-- Station Format Presets Grid -->
+        <div class="presets-section">
+          <div class="panel-header-sm">
+            <h3>📻 RADIO STATION FORMAT PRESETS</h3>
+          </div>
+          <div class="preset-grid" id="presetGrid">
+            <!-- Injected dynamically -->
+          </div>
+        </div>
+
+        <!-- Broadcast Voice Equalizer & Dynamics Rack -->
+        <div class="fx-card radio-fx-card">
+          <div class="fx-title">
+            <span>🎛️ Announcer Voice Processing</span>
+            <span class="val-badge" id="radioVal">ACTIVE</span>
+          </div>
+          <div class="sliders-row">
+            <div class="control-group half">
+              <label>FM Bass Proximity: <span id="radioBassVal">+12 dB</span></label>
+              <input type="range" id="radioBass" min="0" max="15" step="0.5" value="12">
+            </div>
+            <div class="control-group half">
+              <label>Voice Presence: <span id="radioPresenceVal">+8 dB</span></label>
+              <input type="range" id="radioPresence" min="0" max="12" step="0.5" value="8">
+            </div>
+          </div>
+          <div class="sliders-row">
+            <div class="control-group half">
+              <label>Broadcast Limiter: <span id="radioCompressorVal">80%</span></label>
+              <input type="range" id="radioCompressor" min="0" max="100" step="5" value="80">
+            </div>
+            <div class="control-group half">
+              <label>Tube Warmth: <span id="radioWarmthVal">35%</span></label>
+              <input type="range" id="radioWarmth" min="0" max="100" step="5" value="35">
+            </div>
+          </div>
+          <div class="control-group">
+            <label>Pitch Adjustment: <span id="pitchVal">+0 st</span></label>
+            <input type="range" id="pitchShift" min="-6" max="6" step="0.5" value="0">
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Right Column: Visualizer, DJ Decks, Crossfader & Soundboard -->
+      <section class="panel console-panel">
+
+        <!-- Visualizers & Output VU Meters -->
+        <div class="visualizer-card">
+          <div class="panel-header-sm">
+            <h3>📊 STATION MASTER OUTPUT VISUALIZER</h3>
+            <div class="master-trim">
+              <label>Master Out Trim: <span id="masterGainVal">100%</span></label>
+              <input type="range" id="masterGain" min="0" max="150" step="1" value="100" style="width:100px;">
+            </div>
+          </div>
+
+          <div class="visualizer-container">
+            <canvas id="waveCanvas" width="600" height="110" class="viz-canvas"></canvas>
+            <canvas id="fftCanvas" width="600" height="110" class="viz-canvas"></canvas>
+          </div>
+
+          <div class="meters-row">
+            <div class="meter-group">
+              <div class="meter-label"><span>DJ MIC LEVEL</span><span id="micDb">-∞ dB</span></div>
+              <div class="meter-bar-track">
+                <div class="meter-bar-fill" id="micMeterFill"></div>
+                <div class="meter-clip" id="micClip"></div>
+              </div>
+            </div>
+            <div class="meter-group">
+              <div class="meter-label"><span>BROADCAST OUT</span><span id="outDb">-∞ dB</span></div>
+              <div class="meter-bar-track">
+                <div class="meter-bar-fill" id="outMeterFill"></div>
+                <div class="meter-clip" id="outClip"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Master On-Air Broadcast & Recording Toolbar -->
+        <div class="broadcast-toolbar">
+          <button class="btn btn-air btn-xl" id="goLiveBtn">
+            <span class="air-icon">📡</span> GO LIVE ON-AIR
+          </button>
+          <button class="btn btn-rec btn-xl" id="recBtn">
+            <span class="rec-dot"></span> RECORD SHOW
+          </button>
+          <button class="btn btn-danger btn-xl hidden" id="stopRecBtn">
+            ⏹ STOP RECORDING
+          </button>
+          <span class="rec-timer" id="recTimer">00:00</span>
+        </div>
+
+        <div class="clips-list" id="clipsList"></div>
+
+        <!-- Dual DJ Music Decks (Deck A & Deck B) -->
+        <div class="decks-container">
+          <!-- DECK A -->
+          <div class="deck-card deck-a">
+            <div class="deck-header">
+              <span class="deck-title">🎧 DECK A</span>
+              <span class="track-name" id="deckATrackName">No Track Loaded</span>
+            </div>
+            <div class="deck-controls">
+              <input type="file" id="deckAFileInput" accept="audio/*" class="file-input-deck">
+              <button class="btn btn-sm btn-secondary" id="deckABrowseBtn">📁 Load Track</button>
+              <button class="btn btn-sm btn-primary" id="deckAPlayBtn">▶ Play</button>
+              <button class="btn btn-sm btn-danger" id="deckAPauseBtn">⏸ Pause</button>
+            </div>
+            <div class="deck-progress">
+              <span id="deckATime">00:00</span>
+              <input type="range" id="deckASeek" min="0" max="100" value="0" class="seek-bar">
+            </div>
+          </div>
+
+          <!-- DECK B -->
+          <div class="deck-card deck-b">
+            <div class="deck-header">
+              <span class="deck-title">🎧 DECK B</span>
+              <span class="track-name" id="deckBTrackName">No Track Loaded</span>
+            </div>
+            <div class="deck-controls">
+              <input type="file" id="deckBFileInput" accept="audio/*" class="file-input-deck">
+              <button class="btn btn-sm btn-secondary" id="deckBBrowseBtn">📁 Load Track</button>
+              <button class="btn btn-sm btn-primary" id="deckBPlayBtn">▶ Play</button>
+              <button class="btn btn-sm btn-danger" id="deckBPauseBtn">⏸ Pause</button>
+            </div>
+            <div class="deck-progress">
+              <span id="deckBTime">00:00</span>
+              <input type="range" id="deckBSeek" min="0" max="100" value="0" class="seek-bar">
+            </div>
+          </div>
+        </div>
+
+        <!-- Crossfader Bar -->
+        <div class="crossfader-card">
+          <div class="xfader-labels">
+            <span>◀ DECK A</span>
+            <span class="xfader-center">CROSSFADER</span>
+            <span>DECK B ▶</span>
+          </div>
+          <input type="range" id="crossfader" min="0" max="100" value="50" class="xfader-slider">
+        </div>
+
+        <!-- Soundboard Jingle Cart Wall -->
+        <div class="soundboard-card">
+          <div class="panel-header-sm">
+            <h3>💥 SOUNDBOARD JINGLE CART WALL (INSTANT SFX)</h3>
+          </div>
+          <div class="cart-grid">
+            <button class="cart-btn" data-sfx="airhorn">
+              <span class="cart-icon">📣</span>
+              <span class="cart-label">AIRHORN</span>
+            </button>
+            <button class="cart-btn" data-sfx="stinger">
+              <span class="cart-icon">⚡</span>
+              <span class="cart-label">NEWS INTRO</span>
+            </button>
+            <button class="cart-btn" data-sfx="siren">
+              <span class="cart-icon">🚨</span>
+              <span class="cart-label">SIREN</span>
+            </button>
+            <button class="cart-btn" data-sfx="impact">
+              <span class="cart-icon">💥</span>
+              <span class="cart-label">IMPACT</span>
+            </button>
+            <button class="cart-btn" data-sfx="chime">
+              <span class="cart-icon">📻</span>
+              <span class="cart-label">STATION ID</span>
+            </button>
+            <button class="cart-btn" data-sfx="snare">
+              <span class="cart-icon">🥁</span>
+              <span class="cart-label">LAUGH / SNARE</span>
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- Save Station Preset Modal -->
+    <div class="modal-overlay hidden" id="saveModal">
+      <div class="modal-card">
+        <h3>Save Custom Radio Format</h3>
+        <p>Save your announcer EQ, limiter, and compression setup.</p>
+        <div class="form-group">
+          <label for="presetName">Format Name:</label>
+          <input type="text" id="presetName" class="form-control" placeholder="e.g. Midnight Jazz FM">
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-secondary" id="cancelSavePreset">Cancel</button>
+          <button class="btn btn-primary" id="confirmSavePreset">Save Format</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div>RADIONEST Internet Radio Console • Powered by Bun Runtime & Web Audio API • Zero External Dependencies</div>
+    </footer>
+  </div>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

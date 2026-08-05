@@ -1,0 +1,101 @@
+[
+  {
+    "id": "custom-1785952677004",
+    "name": "Cyber Test Preset",
+    "icon": "⚡",
+    "settings": {
+      "pitchShift": 4,
+      "robotMix": 50
+    }
+  },
+  {
+    "id": "custom-1785952683827",
+    "name": "Cyber Test Preset",
+    "icon": "⚡",
+    "settings": {
+      "pitchShift": 4,
+      "robotMix": 50
+    }
+  },
+  {
+    "id": "custom-1785953061842",
+    "name": "Cyber Test Preset",
+    "icon": "⚡",
+    "settings": {
+      "pitchShift": 4,
+      "robotMix": 50
+    }
+  },
+  {
+    "id": "custom-1785953209387",
+    "name": "Cyber Test Preset",
+    "icon": "⚡",
+    "settings": {
+      "pitchShift": 4,
+      "robotMix": 50
+    }
+  },
+  {
+    "id": "custom-1785953447095",
+    "name": "Cyber Test Preset",
+    "icon": "⚡",
+    "settings": {
+      "pitchShift": 4,
+      "robotMix": 50
+    }
+  },
+  {
+    "id": "custom-1785953648581",
+    "name": "Midnight Jazz FM",
+    "icon": "🎷",
+    "settings": {
+      "radioBass": 14,
+      "radioPresence": 6
+    }
+  },
+  {
+    "id": "custom-1785953660450",
+    "name": "Midnight Jazz FM",
+    "icon": "🎷",
+    "settings": {
+      "radioBass": 14,
+      "radioPresence": 6
+    }
+  },
+  {
+    "id": "custom-1785954015690",
+    "name": "Midnight Jazz FM",
+    "icon": "🎷",
+    "settings": {
+      "radioBass": 14,
+      "radioPresence": 6
+    }
+  },
+  {
+    "id": "custom-1785954136908",
+    "name": "Midnight Jazz FM",
+    "icon": "🎷",
+    "settings": {
+      "radioBass": 14,
+      "radioPresence": 6
+    }
+  },
+  {
+    "id": "custom-1785954155948",
+    "name": "Midnight Jazz FM",
+    "icon": "🎷",
+    "settings": {
+      "radioBass": 14,
+      "radioPresence": 6
+    }
+  },
+  {
+    "id": "custom-1785954205542",
+    "name": "Midnight Jazz FM",
+    "icon": "🎷",
+    "settings": {
+      "radioBass": 14,
+      "radioPresence": 6
+    }
+  }
+]
