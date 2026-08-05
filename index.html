@@ -130,9 +130,28 @@
 
         <!-- Station Format Presets Grid -->
         <div class="presets-section">
-          <div class="panel-header-sm">
+          <div class="panel-header-sm preset-header-flex">
             <h3>📻 RADIO STATION FORMAT PRESETS</h3>
+            <button class="btn btn-sm btn-primary" id="openSaveModalBtn" title="Save current voice settings as a preset">
+              <span>💾</span> Save Preset
+            </button>
           </div>
+
+          <!-- Storage Filter Tabs & Status Bar -->
+          <div class="preset-storage-bar">
+            <div class="storage-tabs" id="storageTabs">
+              <button class="storage-tab active" data-storage="all">All Presets</button>
+              <button class="storage-tab" data-storage="sqlite">🗄️ SQLite</button>
+              <button class="storage-tab" data-storage="localstorage">💾 LocalStorage</button>
+              <button class="storage-tab" data-storage="indexeddb">📦 IndexedDB</button>
+            </div>
+            <div class="storage-counts" id="storageCounts">
+              <span class="count-badge sqlite-badge" id="countSqlite">SQLite: 0</span>
+              <span class="count-badge local-badge" id="countLocal">LocalStorage: 0</span>
+              <span class="count-badge idb-badge" id="countIdb">IndexedDB: 0</span>
+            </div>
+          </div>
+
           <div class="preset-grid" id="presetGrid">
             <!-- Injected dynamically -->
           </div>
@@ -313,15 +332,48 @@
     <!-- Save Station Preset Modal -->
     <div class="modal-overlay hidden" id="saveModal">
       <div class="modal-card">
-        <h3>Save Custom Radio Format</h3>
-        <p>Save your announcer EQ, limiter, and compression setup.</p>
+        <h3>🎙️ Save Audio Preset</h3>
+        <p>Save configured DSP voice & announcer settings to your selected storage engine.</p>
+
         <div class="form-group">
-          <label for="presetName">Format Name:</label>
-          <input type="text" id="presetName" class="form-control" placeholder="e.g. Midnight Jazz FM">
+          <label for="presetName">Preset Name:</label>
+          <input type="text" id="presetName" class="form-control" placeholder="e.g. Midnight Jazz FM, Deep Bass Voice">
         </div>
+
+        <div class="form-group">
+          <label for="presetIconSelect">Preset Icon / Emoji:</label>
+          <select id="presetIconSelect" class="form-select">
+            <option value="🎙️">🎙️ Announcer Mic</option>
+            <option value="📻">📻 Radio Console</option>
+            <option value="🎧">🎧 Headphones</option>
+            <option value="🎷">🎷 Midnight Jazz</option>
+            <option value="🔊">🔊 Loudspeaker / PA</option>
+            <option value="⚡">⚡ Energized / Distortion</option>
+            <option value="🚀">🚀 Sci-Fi / Outer Space</option>
+            <option value="🎸">🎸 Rock FM</option>
+            <option value="🎛️">🎛️ Studio Rack</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="presetStorageTarget">Storage Backend Target:</label>
+          <select id="presetStorageTarget" class="form-select highlight-select">
+            <option value="sqlite">🗄️ SQLite Database (Server Side)</option>
+            <option value="localstorage">💾 LocalStorage (Browser Local)</option>
+            <option value="indexeddb">📦 IndexedDB (Browser Database)</option>
+          </select>
+        </div>
+
+        <div class="preset-preview-box">
+          <div class="preview-title">Current Audio Settings to Save:</div>
+          <div class="preview-pills" id="presetPreviewPills">
+            <!-- Dynamically updated -->
+          </div>
+        </div>
+
         <div class="modal-actions">
           <button class="btn btn-secondary" id="cancelSavePreset">Cancel</button>
-          <button class="btn btn-primary" id="confirmSavePreset">Save Format</button>
+          <button class="btn btn-primary" id="confirmSavePreset">Save Preset</button>
         </div>
       </div>
     </div>

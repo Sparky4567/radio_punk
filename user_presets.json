@@ -97,5 +97,74 @@
       "radioBass": 14,
       "radioPresence": 6
     }
+  },
+  {
+    "id": "custom-1785954547925",
+    "name": "Midnight Jazz FM",
+    "icon": "🎷",
+    "settings": {
+      "radioBass": 14,
+      "radioPresence": 6
+    }
+  },
+  {
+    "id": "custom-1785954603101",
+    "name": "Midnight Jazz FM",
+    "icon": "🎷",
+    "storage_type": "file",
+    "settings": {
+      "radioBass": 14,
+      "radioPresence": 6
+    }
+  },
+  {
+    "id": "custom-1785954605746",
+    "name": "Midnight Jazz FM",
+    "icon": "🎷",
+    "storage_type": "file",
+    "settings": {
+      "radioBass": 14,
+      "radioPresence": 6
+    }
+  },
+  {
+    "id": "custom-1785954803907",
+    "name": "Midnight Jazz FM",
+    "icon": "🎷",
+    "storage_type": "file",
+    "settings": {
+      "radioBass": 14,
+      "radioPresence": 6
+    }
+  },
+  {
+    "id": "custom-1785954908779",
+    "name": "Midnight Jazz FM",
+    "icon": "🎷",
+    "storage_type": "file",
+    "settings": {
+      "radioBass": 14,
+      "radioPresence": 6
+    }
+  },
+  {
+    "id": "custom-1785955008293",
+    "name": "Midnight Jazz FM",
+    "icon": "🎷",
+    "storage_type": "file",
+    "settings": {
+      "radioBass": 14,
+      "radioPresence": 6
+    }
+  },
+  {
+    "id": "custom-1785955124134",
+    "name": "Midnight Jazz FM",
+    "icon": "🎷",
+    "storage_type": "file",
+    "settings": {
+      "radioBass": 14,
+      "radioPresence": 6
+    }
   }
 ]

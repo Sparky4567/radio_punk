@@ -148,6 +148,462 @@ const STATION_PRESETS = [
       reverbMix: 15, noiseGate: -50, masterGain: 100,
       radioBass: 0, radioPresence: 9, radioCompressor: 85, radioWarmth: 25, radioNoise: 15
     }
+  },
+  {
+    id: 'monster_truck',
+    name: 'Monster Truck Rally',
+    icon: '🚜',
+    settings: {
+      pitchShift: -3.5, formantShift: -3, robotMix: 0, robotFreq: 60,
+      bitDepth: 16, overdrive: 25, vibRate: 5, vibDepth: 0,
+      hpf: 50, lpf: 15000, delayTime: 80, delayFeedback: 20,
+      reverbMix: 25, noiseGate: -50, masterGain: 115,
+      radioBass: 15, radioPresence: 12, radioCompressor: 95, radioWarmth: 50, radioNoise: 0
+    }
+  },
+  {
+    id: 'cb_walkie_talkie',
+    name: 'CB / Walkie-Talkie',
+    icon: '📻',
+    settings: {
+      pitchShift: 0, formantShift: 0, robotMix: 0, robotFreq: 60,
+      bitDepth: 7, overdrive: 35, vibRate: 5, vibDepth: 0,
+      hpf: 500, lpf: 3200, delayTime: 0, delayFeedback: 0,
+      reverbMix: 0, noiseGate: -35, masterGain: 110,
+      radioBass: 0, radioPresence: 11, radioCompressor: 90, radioWarmth: 55, radioNoise: 30
+    }
+  },
+  {
+    id: 'underwater_sonar',
+    name: 'Deep Sea Submarine',
+    icon: '🌊',
+    settings: {
+      pitchShift: -2.5, formantShift: -4, robotMix: 0, robotFreq: 60,
+      bitDepth: 14, overdrive: 0, vibRate: 3, vibDepth: 8,
+      hpf: 30, lpf: 1200, delayTime: 250, delayFeedback: 45,
+      reverbMix: 65, noiseGate: -60, masterGain: 95,
+      radioBass: 14, radioPresence: 2, radioCompressor: 60, radioWarmth: 40, radioNoise: 5
+    }
+  },
+  {
+    id: 'lofi_chill_radio',
+    name: 'Lofi Beats 24/7',
+    icon: '☕',
+    settings: {
+      pitchShift: -0.5, formantShift: -1, robotMix: 0, robotFreq: 60,
+      bitDepth: 12, overdrive: 10, vibRate: 3, vibDepth: 12,
+      hpf: 120, lpf: 4500, delayTime: 0, delayFeedback: 0,
+      reverbMix: 20, noiseGate: -60, masterGain: 100,
+      radioBass: 11, radioPresence: 4, radioCompressor: 65, radioWarmth: 60, radioNoise: 12
+    }
+  },
+  {
+    id: 'cyberpunk_netrunner',
+    name: 'Cyberpunk Voice',
+    icon: '🤖',
+    settings: {
+      pitchShift: -1.5, formantShift: 0, robotMix: 25, robotFreq: 100,
+      bitDepth: 10, overdrive: 20, vibRate: 5, vibDepth: 0,
+      hpf: 90, lpf: 13000, delayTime: 110, delayFeedback: 25,
+      reverbMix: 30, noiseGate: -55, masterGain: 105,
+      radioBass: 9, radioPresence: 8, radioCompressor: 80, radioWarmth: 45, radioNoise: 0
+    }
+  },
+  {
+    id: 'traffic_helicopter',
+    name: 'Traffic Chopper 9',
+    icon: '🚁',
+    settings: {
+      pitchShift: 0.5, formantShift: 0, robotMix: 0, robotFreq: 60,
+      bitDepth: 9, overdrive: 25, vibRate: 5, vibDepth: 0,
+      hpf: 450, lpf: 4000, delayTime: 0, delayFeedback: 0,
+      reverbMix: 0, noiseGate: -40, masterGain: 105,
+      radioBass: 2, radioPresence: 10, radioCompressor: 85, radioWarmth: 35, radioNoise: 22
+    }
+  },
+  {
+    id: 'nightclub_hype_mc',
+    name: 'Club Hype MC',
+    icon: '🔊',
+    settings: {
+      pitchShift: -1, formantShift: 0, robotMix: 0, robotFreq: 60,
+      bitDepth: 16, overdrive: 15, vibRate: 5, vibDepth: 0,
+      hpf: 40, lpf: 16000, delayTime: 140, delayFeedback: 35,
+      reverbMix: 40, noiseGate: -55, masterGain: 110,
+      radioBass: 15, radioPresence: 10, radioCompressor: 90, radioWarmth: 30, radioNoise: 0
+    }
+  },
+  {
+    id: 'cathedral_pulpit',
+    name: 'Cathedral Hall',
+    icon: '🏛️',
+    settings: {
+      pitchShift: -0.5, formantShift: 0, robotMix: 0, robotFreq: 60,
+      bitDepth: 16, overdrive: 0, vibRate: 5, vibDepth: 0,
+      hpf: 60, lpf: 15000, delayTime: 180, delayFeedback: 40,
+      reverbMix: 55, noiseGate: -60, masterGain: 100,
+      radioBass: 12, radioPresence: 8, radioCompressor: 75, radioWarmth: 20, radioNoise: 0
+    }
+  },
+  {
+    id: 'asmr_whisper',
+    name: 'ASMR Soft Whisper',
+    icon: '🌙',
+    settings: {
+      pitchShift: 0.5, formantShift: 1, robotMix: 0, robotFreq: 60,
+      bitDepth: 16, overdrive: 0, vibRate: 5, vibDepth: 0,
+      hpf: 100, lpf: 18000, delayTime: 0, delayFeedback: 0,
+      reverbMix: 12, noiseGate: -70, masterGain: 120,
+      radioBass: 4, radioPresence: 12, radioCompressor: 45, radioWarmth: 10, radioNoise: 0
+    }
+  },
+  {
+    id: 'phonograph_1920s',
+    name: '1920s Phonograph',
+    icon: '🎺',
+    settings: {
+      pitchShift: 1, formantShift: 0, robotMix: 0, robotFreq: 60,
+      bitDepth: 6, overdrive: 45, vibRate: 6, vibDepth: 5,
+      hpf: 650, lpf: 2600, delayTime: 0, delayFeedback: 0,
+      reverbMix: 0, noiseGate: -35, masterGain: 95,
+      radioBass: 0, radioPresence: 7, radioCompressor: 95, radioWarmth: 75, radioNoise: 40
+    }
+  },
+  {
+    id: 'courtroom_judge',
+    name: 'Courtroom Speaker',
+    icon: '⚖️',
+    settings: {
+      pitchShift: -1, formantShift: 0, robotMix: 0, robotFreq: 60,
+      bitDepth: 16, overdrive: 0, vibRate: 5, vibDepth: 0,
+      hpf: 70, lpf: 14000, delayTime: 60, delayFeedback: 15,
+      reverbMix: 22, noiseGate: -55, masterGain: 100,
+      radioBass: 8, radioPresence: 7, radioCompressor: 75, radioWarmth: 25, radioNoise: 0
+    }
+  },
+  {
+    id: 'auctioneer_fast',
+    name: 'Speed Auctioneer',
+    icon: '🔨',
+    settings: {
+      pitchShift: 1.5, formantShift: 1, robotMix: 0, robotFreq: 60,
+      bitDepth: 16, overdrive: 10, vibRate: 5, vibDepth: 0,
+      hpf: 80, lpf: 16000, delayTime: 0, delayFeedback: 0,
+      reverbMix: 8, noiseGate: -50, masterGain: 105,
+      radioBass: 5, radioPresence: 11, radioCompressor: 85, radioWarmth: 15, radioNoise: 0
+    }
+  },
+  {
+    id: 'deep_baritone_announcer',
+    name: 'Deep Baritone Announcer',
+    icon: '🎙️',
+    settings: {
+      pitchShift: -2.0, formantShift: -2, robotMix: 0, robotFreq: 60,
+      bitDepth: 16, overdrive: 0, vibRate: 5, vibDepth: 0,
+      hpf: 40, lpf: 16000, delayTime: 0, delayFeedback: 0,
+      reverbMix: 10, noiseGate: -60, masterGain: 105,
+      radioBass: 15, radioPresence: 9, radioCompressor: 85, radioWarmth: 45, radioNoise: 0
+    }
+  },
+  {
+    id: 'dark_titan_boss',
+    name: 'Dark Titan & Boss',
+    icon: '👹',
+    settings: {
+      pitchShift: -5.0, formantShift: -4, robotMix: 0, robotFreq: 60,
+      bitDepth: 16, overdrive: 15, vibRate: 5, vibDepth: 0,
+      hpf: 30, lpf: 15000, delayTime: 60, delayFeedback: 15,
+      reverbMix: 25, noiseGate: -50, masterGain: 110,
+      radioBass: 15, radioPresence: 6, radioCompressor: 90, radioWarmth: 60, radioNoise: 0
+    }
+  },
+  {
+    id: 'movie_trailer_voice',
+    name: 'Movie Trailer Voiceover',
+    icon: '🎬',
+    settings: {
+      pitchShift: -2.5, formantShift: -2, robotMix: 0, robotFreq: 60,
+      bitDepth: 16, overdrive: 5, vibRate: 5, vibDepth: 0,
+      hpf: 45, lpf: 16500, delayTime: 40, delayFeedback: 10,
+      reverbMix: 18, noiseGate: -55, masterGain: 108,
+      radioBass: 14, radioPresence: 11, radioCompressor: 88, radioWarmth: 35, radioNoise: 0
+    }
+  },
+  {
+    id: 'gotham_vigilante',
+    name: 'Gotham Vigilante',
+    icon: '🦇',
+    settings: {
+      pitchShift: -3.5, formantShift: -3, robotMix: 0, robotFreq: 60,
+      bitDepth: 15, overdrive: 20, vibRate: 5, vibDepth: 0,
+      hpf: 50, lpf: 14000, delayTime: 0, delayFeedback: 0,
+      reverbMix: 15, noiseGate: -45, masterGain: 110,
+      radioBass: 13, radioPresence: 8, radioCompressor: 95, radioWarmth: 50, radioNoise: 0
+    }
+  },
+  {
+    id: 'deep_midnight_sub',
+    name: 'Deep Sub FM',
+    icon: '📻',
+    settings: {
+      pitchShift: -4.0, formantShift: -3, robotMix: 0, robotFreq: 60,
+      bitDepth: 16, overdrive: 0, vibRate: 4, vibDepth: 5,
+      hpf: 35, lpf: 15000, delayTime: 90, delayFeedback: 20,
+      reverbMix: 30, noiseGate: -60, masterGain: 102,
+      radioBass: 15, radioPresence: 4, radioCompressor: 75, radioWarmth: 65, radioNoise: 0
+    }
+  },
+  {
+    id: 'cyber_deep_android',
+    name: 'Cyber Deep Android',
+    icon: '🤖',
+    settings: {
+      pitchShift: -3.0, formantShift: -2, robotMix: 20, robotFreq: 90,
+      bitDepth: 12, overdrive: 15, vibRate: 5, vibDepth: 0,
+      hpf: 60, lpf: 13500, delayTime: 100, delayFeedback: 25,
+      reverbMix: 25, noiseGate: -50, masterGain: 105,
+      radioBass: 12, radioPresence: 7, radioCompressor: 85, radioWarmth: 30, radioNoise: 0
+    }
+  },
+  {
+    id: 'infernal_demon_lord',
+    name: 'Infernal Demon Overlord',
+    icon: '🔥',
+    settings: {
+      pitchShift: -6.0, formantShift: -5, robotMix: 0, robotFreq: 60,
+      bitDepth: 16, overdrive: 25, vibRate: 5, vibDepth: 0,
+      hpf: 25, lpf: 14000, delayTime: 50, delayFeedback: 15,
+      reverbMix: 30, noiseGate: -45, masterGain: 112,
+      radioBass: 15, radioPresence: 8, radioCompressor: 95, radioWarmth: 70, radioNoise: 0
+    }
+  },
+  {
+    id: 'alien_dreadnought',
+    name: 'Alien Dreadnought',
+    icon: '🛸',
+    settings: {
+      pitchShift: -4.5, formantShift: -3, robotMix: 35, robotFreq: 80,
+      bitDepth: 12, overdrive: 20, vibRate: 5, vibDepth: 0,
+      hpf: 50, lpf: 12500, delayTime: 130, delayFeedback: 30,
+      reverbMix: 35, noiseGate: -50, masterGain: 105,
+      radioBass: 13, radioPresence: 7, radioCompressor: 85, radioWarmth: 40, radioNoise: 0
+    }
+  },
+  {
+    id: 'mountain_giant_ogre',
+    name: 'Mountain Giant Ogre',
+    icon: '⛰️',
+    settings: {
+      pitchShift: -5.5, formantShift: -4, robotMix: 0, robotFreq: 60,
+      bitDepth: 16, overdrive: 10, vibRate: 4, vibDepth: 0,
+      hpf: 30, lpf: 13000, delayTime: 70, delayFeedback: 20,
+      reverbMix: 35, noiseGate: -50, masterGain: 110,
+      radioBass: 15, radioPresence: 5, radioCompressor: 90, radioWarmth: 55, radioNoise: 0
+    }
+  },
+  {
+    id: 'deep_radio_warmth',
+    name: 'Deep Vintage Warmth',
+    icon: '🎙️',
+    settings: {
+      pitchShift: -1.8, formantShift: -1.5, robotMix: 0, robotFreq: 60,
+      bitDepth: 16, overdrive: 0, vibRate: 5, vibDepth: 0,
+      hpf: 45, lpf: 16500, delayTime: 0, delayFeedback: 0,
+      reverbMix: 12, noiseGate: -60, masterGain: 105,
+      radioBass: 14, radioPresence: 10, radioCompressor: 85, radioWarmth: 80, radioNoise: 0
+    }
+  },
+  {
+    id: 'shadow_wraith',
+    name: 'Shadow Wraith',
+    icon: '🌑',
+    settings: {
+      pitchShift: -3.8, formantShift: -3, robotMix: 15, robotFreq: 70,
+      bitDepth: 14, overdrive: 10, vibRate: 3, vibDepth: 10,
+      hpf: 60, lpf: 14000, delayTime: 120, delayFeedback: 30,
+      reverbMix: 45, noiseGate: -55, masterGain: 102,
+      radioBass: 11, radioPresence: 8, radioCompressor: 80, radioWarmth: 45, radioNoise: 0
+    }
+  },
+  {
+    id: 'deep_arena_announcer',
+    name: 'Deep Arena Announcer',
+    icon: '📢',
+    settings: {
+      pitchShift: -2.2, formantShift: -2, robotMix: 0, robotFreq: 60,
+      bitDepth: 16, overdrive: 10, vibRate: 5, vibDepth: 0,
+      hpf: 50, lpf: 16000, delayTime: 90, delayFeedback: 25,
+      reverbMix: 25, noiseGate: -55, masterGain: 112,
+      radioBass: 15, radioPresence: 12, radioCompressor: 90, radioWarmth: 35, radioNoise: 0
+    }
+  },
+  {
+    id: 'nexus_9_core',
+    name: 'Nexus-9 Android Core',
+    icon: '🤖',
+    settings: {
+      pitchShift: 0, formantShift: 0, robotMix: 30, robotFreq: 110,
+      bitDepth: 10, overdrive: 15, vibRate: 5, vibDepth: 0,
+      hpf: 75, lpf: 14000, delayTime: 0, delayFeedback: 0,
+      reverbMix: 15, noiseGate: -55, masterGain: 105,
+      radioBass: 8, radioPresence: 10, radioCompressor: 85, radioWarmth: 20, radioNoise: 0
+    }
+  },
+  {
+    id: 'cyberpunk_glitch',
+    name: 'Cyberpunk Glitch Synth',
+    icon: '⚡',
+    settings: {
+      pitchShift: 2.0, formantShift: 1, robotMix: 15, robotFreq: 140,
+      bitDepth: 8, overdrive: 30, vibRate: 6, vibDepth: 10,
+      hpf: 100, lpf: 15000, delayTime: 60, delayFeedback: 20,
+      reverbMix: 20, noiseGate: -50, masterGain: 108,
+      radioBass: 10, radioPresence: 12, radioCompressor: 90, radioWarmth: 35, radioNoise: 5
+    }
+  },
+  {
+    id: 'orbital_ai_voice',
+    name: 'Orbital AI Station',
+    icon: '🛰️',
+    settings: {
+      pitchShift: 1.0, formantShift: 0, robotMix: 20, robotFreq: 95,
+      bitDepth: 14, overdrive: 5, vibRate: 4, vibDepth: 5,
+      hpf: 80, lpf: 16000, delayTime: 150, delayFeedback: 30,
+      reverbMix: 35, noiseGate: -60, masterGain: 100,
+      radioBass: 6, radioPresence: 9, radioCompressor: 75, radioWarmth: 15, radioNoise: 0
+    }
+  },
+  {
+    id: 'mech_suit_announcer',
+    name: 'Mech Suit Announcer',
+    icon: '🦾',
+    settings: {
+      pitchShift: -3.5, formantShift: -3, robotMix: 25, robotFreq: 75,
+      bitDepth: 11, overdrive: 25, vibRate: 5, vibDepth: 0,
+      hpf: 40, lpf: 14500, delayTime: 80, delayFeedback: 15,
+      reverbMix: 25, noiseGate: -45, masterGain: 112,
+      radioBass: 15, radioPresence: 10, radioCompressor: 95, radioWarmth: 40, radioNoise: 0
+    }
+  },
+  {
+    id: 'eight_bit_cyborg',
+    name: '8-Bit Arcade Cyborg',
+    icon: '👾',
+    settings: {
+      pitchShift: 3.0, formantShift: 2, robotMix: 10, robotFreq: 180,
+      bitDepth: 5, overdrive: 40, vibRate: 7, vibDepth: 15,
+      hpf: 150, lpf: 10000, delayTime: 0, delayFeedback: 0,
+      reverbMix: 10, noiseGate: -40, masterGain: 100,
+      radioBass: 4, radioPresence: 8, radioCompressor: 80, radioWarmth: 50, radioNoise: 10
+    }
+  },
+  {
+    id: 'hologram_transmission',
+    name: 'Hologram Transmission',
+    icon: '🌐',
+    settings: {
+      pitchShift: 0.5, formantShift: 0, robotMix: 15, robotFreq: 120,
+      bitDepth: 12, overdrive: 10, vibRate: 5, vibDepth: 8,
+      hpf: 110, lpf: 13500, delayTime: 90, delayFeedback: 25,
+      reverbMix: 25, noiseGate: -55, masterGain: 102,
+      radioBass: 5, radioPresence: 7, radioCompressor: 70, radioWarmth: 20, radioNoise: 8
+    }
+  },
+  {
+    id: 'synthwave_cyber',
+    name: 'High-Voltage Synthwave',
+    icon: '🪩',
+    settings: {
+      pitchShift: -1.0, formantShift: 0, robotMix: 0, robotFreq: 60,
+      bitDepth: 16, overdrive: 15, vibRate: 6, vibDepth: 20,
+      hpf: 60, lpf: 16000, delayTime: 130, delayFeedback: 30,
+      reverbMix: 30, noiseGate: -60, masterGain: 105,
+      radioBass: 11, radioPresence: 9, radioCompressor: 80, radioWarmth: 45, radioNoise: 0
+    }
+  },
+  {
+    id: 'aegis_defense_ai',
+    name: 'Aegis Defense AI',
+    icon: '🛡️',
+    settings: {
+      pitchShift: -2.0, formantShift: -1, robotMix: 25, robotFreq: 85,
+      bitDepth: 13, overdrive: 15, vibRate: 5, vibDepth: 0,
+      hpf: 55, lpf: 15000, delayTime: 50, delayFeedback: 10,
+      reverbMix: 18, noiseGate: -50, masterGain: 110,
+      radioBass: 13, radioPresence: 11, radioCompressor: 90, radioWarmth: 25, radioNoise: 0
+    }
+  },
+  {
+    id: 'quantum_void_ai',
+    name: 'Quantum Void AI',
+    icon: '🌌',
+    settings: {
+      pitchShift: -4.0, formantShift: -3, robotMix: 30, robotFreq: 65,
+      bitDepth: 12, overdrive: 20, vibRate: 3, vibDepth: 12,
+      hpf: 35, lpf: 13000, delayTime: 200, delayFeedback: 35,
+      reverbMix: 50, noiseGate: -55, masterGain: 105,
+      radioBass: 14, radioPresence: 6, radioCompressor: 80, radioWarmth: 40, radioNoise: 0
+    }
+  },
+  {
+    id: 'cybernetic_augment',
+    name: 'Cybernetic Augment',
+    icon: '🔋',
+    settings: {
+      pitchShift: -1.5, formantShift: -1, robotMix: 20, robotFreq: 100,
+      bitDepth: 13, overdrive: 15, vibRate: 5, vibDepth: 0,
+      hpf: 65, lpf: 15500, delayTime: 70, delayFeedback: 15,
+      reverbMix: 20, noiseGate: -55, masterGain: 106,
+      radioBass: 10, radioPresence: 9, radioCompressor: 85, radioWarmth: 35, radioNoise: 0
+    }
+  },
+  {
+    id: 'floppy_disk_terminal',
+    name: 'Floppy Disk Terminal',
+    icon: '💾',
+    settings: {
+      pitchShift: 0, formantShift: 0, robotMix: 15, robotFreq: 160,
+      bitDepth: 6, overdrive: 30, vibRate: 5, vibDepth: 0,
+      hpf: 400, lpf: 3800, delayTime: 0, delayFeedback: 0,
+      reverbMix: 5, noiseGate: -40, masterGain: 98,
+      radioBass: 1, radioPresence: 8, radioCompressor: 85, radioWarmth: 55, radioNoise: 25
+    }
+  },
+  {
+    id: 'neural_link_operator',
+    name: 'Neural Link Operator',
+    icon: '🥽',
+    settings: {
+      pitchShift: 0.8, formantShift: 0.5, robotMix: 15, robotFreq: 115,
+      bitDepth: 15, overdrive: 5, vibRate: 4, vibDepth: 6,
+      hpf: 85, lpf: 17000, delayTime: 40, delayFeedback: 10,
+      reverbMix: 15, noiseGate: -60, masterGain: 104,
+      radioBass: 6, radioPresence: 12, radioCompressor: 80, radioWarmth: 15, radioNoise: 0
+    }
+  },
+  {
+    id: 'deep_space_relay_ai',
+    name: 'Deep Space Relay AI',
+    icon: '🛰️',
+    settings: {
+      pitchShift: -2.8, formantShift: -2, robotMix: 25, robotFreq: 85,
+      bitDepth: 10, overdrive: 15, vibRate: 4, vibDepth: 8,
+      hpf: 70, lpf: 12000, delayTime: 180, delayFeedback: 40,
+      reverbMix: 40, noiseGate: -50, masterGain: 102,
+      radioBass: 12, radioPresence: 7, radioCompressor: 82, radioWarmth: 30, radioNoise: 10
+    }
+  },
+  {
+    id: 'starship_computer',
+    name: 'Starship Computer',
+    icon: '🚀',
+    settings: {
+      pitchShift: 0, formantShift: 0, robotMix: 20, robotFreq: 105,
+      bitDepth: 15, overdrive: 5, vibRate: 5, vibDepth: 0,
+      hpf: 70, lpf: 16500, delayTime: 0, delayFeedback: 0,
+      reverbMix: 15, noiseGate: -60, masterGain: 105,
+      radioBass: 10, radioPresence: 11, radioCompressor: 85, radioWarmth: 10, radioNoise: 0
+    }
   }
 ];
 
@@ -961,6 +1417,159 @@ class RadioStudioEngine {
   }
 }
 
+// Storage Managers for Audio Presets: SQLite, LocalStorage, IndexedDB
+
+class LocalStoragePresetManager {
+  static KEY = 'radionest_custom_presets_v1';
+
+  static getAll() {
+    try {
+      const data = localStorage.getItem(this.KEY);
+      return data ? JSON.parse(data) : [];
+    } catch (e) {
+      console.warn('LocalStorage read error:', e);
+      return [];
+    }
+  }
+
+  static save(name, icon, settings) {
+    const presets = this.getAll();
+    const newPreset = {
+      id: 'local-' + Date.now() + '-' + Math.random().toString(36).substring(2, 7),
+      name,
+      icon: icon || '🎛️',
+      storage_type: 'localstorage',
+      settings
+    };
+    presets.push(newPreset);
+    localStorage.setItem(this.KEY, JSON.stringify(presets));
+    return newPreset;
+  }
+
+  static delete(id) {
+    let presets = this.getAll();
+    presets = presets.filter(p => p.id !== id);
+    localStorage.setItem(this.KEY, JSON.stringify(presets));
+    return true;
+  }
+}
+
+class IndexedDBPresetManager {
+  static DB_NAME = 'RadioNestStudioDB';
+  static STORE_NAME = 'presets';
+  static DB_VERSION = 1;
+
+  static openDB() {
+    return new Promise((resolve, reject) => {
+      if (!window.indexedDB) return reject('IndexedDB not supported');
+      const req = indexedDB.open(this.DB_NAME, this.DB_VERSION);
+      req.onupgradeneeded = (e) => {
+        const db = e.target.result;
+        if (!db.objectStoreNames.contains(this.STORE_NAME)) {
+          db.createObjectStore(this.STORE_NAME, { keyPath: 'id' });
+        }
+      };
+      req.onsuccess = (e) => resolve(e.target.result);
+      req.onerror = (e) => reject(e.target.error);
+    });
+  }
+
+  static async getAll() {
+    try {
+      const db = await this.openDB();
+      return new Promise((resolve) => {
+        const tx = db.transaction(this.STORE_NAME, 'readonly');
+        const store = tx.objectStore(this.STORE_NAME);
+        const req = store.getAll();
+        req.onsuccess = () => resolve(req.result || []);
+        req.onerror = () => resolve([]);
+      });
+    } catch (e) {
+      console.warn('IndexedDB getAll error:', e);
+      return [];
+    }
+  }
+
+  static async save(name, icon, settings) {
+    try {
+      const db = await this.openDB();
+      const preset = {
+        id: 'idb-' + Date.now() + '-' + Math.random().toString(36).substring(2, 7),
+        name,
+        icon: icon || '🎛️',
+        storage_type: 'indexeddb',
+        settings
+      };
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(this.STORE_NAME, 'readwrite');
+        const store = tx.objectStore(this.STORE_NAME);
+        const req = store.put(preset);
+        req.onsuccess = () => resolve(preset);
+        req.onerror = (err) => reject(err);
+      });
+    } catch (e) {
+      console.warn('IndexedDB save error:', e);
+      throw e;
+    }
+  }
+
+  static async delete(id) {
+    try {
+      const db = await this.openDB();
+      return new Promise((resolve) => {
+        const tx = db.transaction(this.STORE_NAME, 'readwrite');
+        const store = tx.objectStore(this.STORE_NAME);
+        const req = store.delete(id);
+        req.onsuccess = () => resolve(true);
+        req.onerror = () => resolve(false);
+      });
+    } catch (e) {
+      return false;
+    }
+  }
+}
+
+class SqlitePresetManager {
+  static async getAll() {
+    try {
+      const res = await fetch('/api/presets/sqlite');
+      if (!res.ok) return [];
+      const data = await res.json();
+      return data.presets || [];
+    } catch (e) {
+      console.warn('SQLite fetch error:', e);
+      return [];
+    }
+  }
+
+  static async save(name, icon, settings) {
+    try {
+      const res = await fetch('/api/presets/sqlite', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, icon, settings })
+      });
+      if (!res.ok) throw new Error('SQLite server error');
+      const data = await res.json();
+      return data.preset;
+    } catch (e) {
+      console.warn('SQLite save error:', e);
+      throw e;
+    }
+  }
+
+  static async delete(id) {
+    try {
+      const res = await fetch('/api/presets/sqlite/' + id, { method: 'DELETE' });
+      if (!res.ok) return false;
+      const data = await res.json();
+      return data.success;
+    } catch (e) {
+      return false;
+    }
+  }
+}
+
 // Global UI Initialization
 document.addEventListener('DOMContentLoaded', () => {
   const engine = new RadioStudioEngine();
@@ -985,20 +1594,97 @@ document.addEventListener('DOMContentLoaded', () => {
 
   populateMics();
 
-  // Preset Grid
+  // Storage State & Presets
   const presetGrid = document.getElementById('presetGrid');
+  let activeStorageFilter = 'all';
+  let sqlitePresetsList = [];
+  let localPresetsList = [];
+  let idbPresetsList = [];
+
+  async function loadAllCustomPresets() {
+    sqlitePresetsList = await SqlitePresetManager.getAll();
+    localPresetsList = LocalStoragePresetManager.getAll();
+    idbPresetsList = await IndexedDBPresetManager.getAll();
+
+    // Update Counts
+    const countSqliteEl = document.getElementById('countSqlite');
+    const countLocalEl = document.getElementById('countLocal');
+    const countIdbEl = document.getElementById('countIdb');
+
+    if (countSqliteEl) countSqliteEl.textContent = `SQLite: ${sqlitePresetsList.length}`;
+    if (countLocalEl) countLocalEl.textContent = `LocalStorage: ${localPresetsList.length}`;
+    if (countIdbEl) countIdbEl.textContent = `IndexedDB: ${idbPresetsList.length}`;
+
+    renderPresets();
+  }
+
   function renderPresets() {
     if (!presetGrid) return;
     presetGrid.innerHTML = '';
 
-    STATION_PRESETS.forEach(preset => {
+    let presetsToDisplay = [];
+
+    if (activeStorageFilter === 'all') {
+      presetsToDisplay = [
+        ...STATION_PRESETS.map(p => ({ ...p, storage_type: 'builtin' })),
+        ...sqlitePresetsList.map(p => ({ ...p, storage_type: 'sqlite' })),
+        ...localPresetsList.map(p => ({ ...p, storage_type: 'localstorage' })),
+        ...idbPresetsList.map(p => ({ ...p, storage_type: 'indexeddb' })),
+      ];
+    } else if (activeStorageFilter === 'sqlite') {
+      presetsToDisplay = sqlitePresetsList.map(p => ({ ...p, storage_type: 'sqlite' }));
+    } else if (activeStorageFilter === 'localstorage') {
+      presetsToDisplay = localPresetsList.map(p => ({ ...p, storage_type: 'localstorage' }));
+    } else if (activeStorageFilter === 'indexeddb') {
+      presetsToDisplay = idbPresetsList.map(p => ({ ...p, storage_type: 'indexeddb' }));
+    }
+
+    if (presetsToDisplay.length === 0) {
+      const emptyMsg = document.createElement('div');
+      emptyMsg.style.gridColumn = '1 / -1';
+      emptyMsg.style.padding = '1.5rem';
+      emptyMsg.style.textAlign = 'center';
+      emptyMsg.style.color = 'var(--text-muted)';
+      emptyMsg.style.fontSize = '0.85rem';
+      emptyMsg.innerHTML = `No custom presets saved in <strong>${activeStorageFilter.toUpperCase()}</strong> storage yet.`;
+      presetGrid.appendChild(emptyMsg);
+      return;
+    }
+
+    presetsToDisplay.forEach(preset => {
       const card = document.createElement('div');
       card.className = `preset-card ${engine.currentPresetId === preset.id ? 'active' : ''}`;
       card.dataset.id = preset.id;
+
+      const isCustom = preset.storage_type !== 'builtin';
+      const badgeText = preset.storage_type === 'sqlite' ? '🗄️ SQLite' :
+                        preset.storage_type === 'localstorage' ? '💾 LocalStorage' :
+                        preset.storage_type === 'indexeddb' ? '📦 IndexedDB' : 'Standard';
+
       card.innerHTML = `
-        <div class="preset-icon">${preset.icon}</div>
+        ${isCustom ? `<button class="delete-preset-btn" title="Delete preset">×</button>` : ''}
+        <div class="preset-icon">${preset.icon || '🎛️'}</div>
         <div class="preset-name">${preset.name}</div>
+        <div class="preset-storage-badge ${preset.storage_type}">${badgeText}</div>
       `;
+
+      if (isCustom) {
+        const delBtn = card.querySelector('.delete-preset-btn');
+        delBtn?.addEventListener('click', async (e) => {
+          e.stopPropagation();
+          if (confirm(`Delete custom preset "${preset.name}" from ${badgeText}?`)) {
+            if (preset.storage_type === 'sqlite') {
+              await SqlitePresetManager.delete(preset.id);
+            } else if (preset.storage_type === 'localstorage') {
+              LocalStoragePresetManager.delete(preset.id);
+            } else if (preset.storage_type === 'indexeddb') {
+              await IndexedDBPresetManager.delete(preset.id);
+            }
+            await loadAllCustomPresets();
+          }
+        });
+      }
+
       card.addEventListener('click', () => {
         document.querySelectorAll('.preset-card').forEach(c => c.classList.remove('active'));
         card.classList.add('active');
@@ -1006,11 +1692,79 @@ document.addEventListener('DOMContentLoaded', () => {
         engine.applySettings(preset.settings);
         updateSlidersUI(preset.settings);
       });
+
       presetGrid.appendChild(card);
     });
   }
 
-  renderPresets();
+  // Storage Tabs Listener
+  document.querySelectorAll('.storage-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.storage-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      activeStorageFilter = tab.dataset.storage;
+      renderPresets();
+    });
+  });
+
+  // Save Modal Controls
+  const saveModal = document.getElementById('saveModal');
+  const openSaveModalBtn = document.getElementById('openSaveModalBtn');
+  const cancelSavePreset = document.getElementById('cancelSavePreset');
+  const confirmSavePreset = document.getElementById('confirmSavePreset');
+  const presetPreviewPills = document.getElementById('presetPreviewPills');
+
+  openSaveModalBtn?.addEventListener('click', () => {
+    if (!saveModal) return;
+    saveModal.classList.remove('hidden');
+
+    // Populate Live Settings Preview
+    if (presetPreviewPills) {
+      const s = engine.activeSettings;
+      presetPreviewPills.innerHTML = `
+        <span class="preview-pill">Pitch: ${s.pitchShift > 0 ? '+' : ''}${s.pitchShift} st</span>
+        <span class="preview-pill">Bass: ${s.radioBass > 0 ? '+' : ''}${s.radioBass} dB</span>
+        <span class="preview-pill">Presence: ${s.radioPresence > 0 ? '+' : ''}${s.radioPresence} dB</span>
+        <span class="preview-pill">Limiter: ${s.radioCompressor}%</span>
+        <span class="preview-pill">Warmth: ${s.radioWarmth}%</span>
+        <span class="preview-pill">Master: ${s.masterGain}%</span>
+      `;
+    }
+  });
+
+  cancelSavePreset?.addEventListener('click', () => {
+    if (saveModal) saveModal.classList.add('hidden');
+  });
+
+  confirmSavePreset?.addEventListener('click', async () => {
+    const nameInput = document.getElementById('presetName');
+    const iconSelect = document.getElementById('presetIconSelect');
+    const storageTarget = document.getElementById('presetStorageTarget');
+
+    const name = nameInput?.value.trim() || 'Custom Preset';
+    const icon = iconSelect?.value || '🎙️';
+    const target = storageTarget?.value || 'sqlite';
+    const settings = { ...engine.activeSettings };
+
+    try {
+      if (target === 'sqlite') {
+        await SqlitePresetManager.save(name, icon, settings);
+      } else if (target === 'localstorage') {
+        LocalStoragePresetManager.save(name, icon, settings);
+      } else if (target === 'indexeddb') {
+        await IndexedDBPresetManager.save(name, icon, settings);
+      }
+
+      if (saveModal) saveModal.classList.add('hidden');
+      if (nameInput) nameInput.value = '';
+
+      await loadAllCustomPresets();
+    } catch (e) {
+      alert('Failed to save preset: ' + e.message);
+    }
+  });
+
+  loadAllCustomPresets();
 
   function updateSlidersUI(settings) {
     const map = {

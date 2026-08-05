@@ -72,6 +72,56 @@ describe("RADIONEST Radio Broadcaster Studio & API", () => {
     expect(postJson.preset.name).toBe("Midnight Jazz FM");
   });
 
+  test("SQLite database preset persistence API (GET, POST, DELETE)", async () => {
+    const sqlitePreset = {
+      name: "Deep Space Station",
+      icon: "🚀",
+      settings: { pitchShift: -3, radioBass: 10, radioWarmth: 40 }
+    };
+
+    // 1. Create in SQLite
+    const createRes = await fetch(`${baseUrl}/api/presets/sqlite`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(sqlitePreset)
+    });
+    expect(createRes.status).toBe(200);
+    const createJson = await createRes.json() as { success: boolean; preset: { id: string; name: string; storage_type: string } };
+    expect(createJson.success).toBe(true);
+    expect(createJson.preset.name).toBe("Deep Space Station");
+    expect(createJson.preset.storage_type).toBe("sqlite");
+    const createdId = createJson.preset.id;
+
+    // 2. Fetch SQLite presets
+    const getRes = await fetch(`${baseUrl}/api/presets/sqlite`);
+    expect(getRes.status).toBe(200);
+    const getJson = await getRes.json() as { presets: any[] };
+    expect(Array.isArray(getJson.presets)).toBe(true);
+    const found = getJson.presets.find((p: any) => p.id === createdId);
+    expect(found).toBeDefined();
+    expect(found.name).toBe("Deep Space Station");
+    expect(found.settings.pitchShift).toBe(-3);
+
+    // 3. Query with ?engine=sqlite
+    const engineRes = await fetch(`${baseUrl}/api/presets?engine=sqlite`);
+    expect(engineRes.status).toBe(200);
+    const engineJson = await engineRes.json() as { presets: any[] };
+    expect(engineJson.presets.some((p: any) => p.id === createdId)).toBe(true);
+
+    // 4. Delete SQLite preset
+    const deleteRes = await fetch(`${baseUrl}/api/presets/sqlite/${createdId}`, {
+      method: "DELETE"
+    });
+    expect(deleteRes.status).toBe(200);
+    const deleteJson = await deleteRes.json() as { success: boolean };
+    expect(deleteJson.success).toBe(true);
+
+    // 5. Verify deletion
+    const verifyRes = await fetch(`${baseUrl}/api/presets/sqlite`);
+    const verifyJson = await verifyRes.json() as { presets: any[] };
+    expect(verifyJson.presets.some((p: any) => p.id === createdId)).toBe(false);
+  });
+
   test("GET / contains ON AIR and Soundboard controls", async () => {
     const res = await fetch(`${baseUrl}/`);
     const html = await res.text();
