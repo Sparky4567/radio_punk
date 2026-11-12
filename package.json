@@ -3,8 +3,16 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "scripts": {
+    "dev": "bun --hot index.ts",
+    "test": "bun test",
+    "build": "bun run build.ts",
+    "preview": "bun run build && wrangler pages dev",
+    "deploy": "bun run build && wrangler pages deploy"
+  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "wrangler": "^4.161.0"
   },
   "peerDependencies": {
     "typescript": "^5"

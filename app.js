@@ -1531,6 +1531,7 @@ class IndexedDBPresetManager {
 
 class SqlitePresetManager {
   static async getAll() {
+    if (document.documentElement.dataset.staticHost === 'true') return [];
     try {
       const res = await fetch('/api/presets/sqlite');
       if (!res.ok) return [];
@@ -1572,6 +1573,14 @@ class SqlitePresetManager {
 
 // Global UI Initialization
 document.addEventListener('DOMContentLoaded', () => {
+  if (document.documentElement.dataset.staticHost === 'true') {
+    document.querySelectorAll('[data-storage="sqlite"], #presetStorageTarget option[value="sqlite"], #goLiveBtn').forEach(control => {
+      control.disabled = true;
+      control.title = 'Requires the Bun server; unavailable on static hosting.';
+    });
+    document.getElementById('presetStorageTarget').value = 'localstorage';
+    document.getElementById('goLiveBtn').textContent = 'Broadcast unavailable on static hosting';
+  }
   const engine = new RadioStudioEngine();
 
   // Populate Mics

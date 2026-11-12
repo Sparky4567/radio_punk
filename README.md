@@ -24,6 +24,39 @@ bun test
 
 ---
 
+## Cloudflare Pages deployment
+
+Install [Bun](https://bun.sh) and Node.js 22.12 or newer (required by Wrangler),
+and ensure the supported Node version is on your `PATH`. Then run:
+
+```bash
+bun install --frozen-lockfile
+bun run build
+bunx wrangler login
+bunx wrangler pages deploy
+```
+
+`wrangler.jsonc` configures the Pages project name (`radio-punk`) and output
+directory (`dist`). Change the name if your existing Pages project uses another
+name. On the first deployment, Wrangler can prompt you to create the project.
+After login, `bun run deploy` builds and deploys in one command. For CI, configure
+`CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` as secrets.
+
+Use `bun run preview` to build and preview with the Pages runtime locally. For
+Cloudflare Git integration, use build command `bun run build` and output `dist`.
+Wrangler's deploy command uploads existing output; run the build first.
+
+This deployment serves the browser studio: microphone processing, decks,
+soundboard, recording, browser presets, and offline assets. SQLite presets and
+live WebSocket broadcasting require the Bun backend and are disabled in the
+Pages build; saving presets defaults to LocalStorage. `bun run dev` still runs
+the full original Bun application with its server features. Migrating those
+features requires a Cloudflare backend (for example D1 and a separate Durable
+Object Worker); Pages does not run `index.ts` or publish the local SQLite file.
+
+The build publishes only an explicit list of browser assets. Server source,
+local presets, and the database stay out of `dist`.
+
 ## 🌟 Station Console Features
 
 - **🔴 ON-AIR Live WebSocket Broadcaster**:

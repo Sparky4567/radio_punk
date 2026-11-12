@@ -4,6 +4,9 @@ node_modules
 # output
 out
 dist
+.wrangler
+.dev.vars
+.dev.vars.*
 *.tgz
 
 # code coverage
